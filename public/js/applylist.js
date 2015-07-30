@@ -76,10 +76,10 @@ $(function() {
     function bindListEvent() {
     	// body...
     	$('#myList li').on('mouseenter',function() {//移动到apDate上时触发动画
-    			$(this).find('.del-btn').animate({width:"100px"},200);
+    			$(this).find('.del-btn').stop().animate({width:"100px"},200);
     	});
     	$('#myList li').on('mouseleave',function() {//移动到apDate上时触发动画
-    			$(this).find('.del-btn').animate({width:"0px"},200);
+    			$(this).find('.del-btn').stop().animate({width:"0px"},200);
     	});
     	$('#myList li .del-btn').on('click',function() {
     		//将ID传到服务器
@@ -93,8 +93,8 @@ $(function() {
     				console.log(thisID.uniqueid + ' deleted.');
     			}
     		});
-    		$(this).parent().animate({height:'0px'},200,function() {
-    			$(this).animate({marginTop:'0px'},200,function() {
+    		$(this).parent().stop().animate({height:'0px'},200,function() {
+    			$(this).stop().animate({marginTop:'0px'},200,function() {
     				var ullist = $(this).parent();
     				$(this).remove();				
     				console.log("list length:"+ullist);
