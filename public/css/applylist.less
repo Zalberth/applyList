@@ -1,0 +1,203 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+.opacity_cross(@opcty) {
+	 @opacityPercentage: @opcty * 100;
+	  filter: ~"alpha(opacity = (@{opacityPercentage}))";
+      -moz-opacity:@opcty;  
+      -khtml-opacity:@opcty;  
+      opacity:@opcty;
+}
+@headerHight:80px;
+#header {
+	width: 100%;
+	height: @headerHight;
+	position: fixed;
+	z-index: 1;
+	box-shadow: 3px 3px 5px black;
+	background-color: blue;
+	& .add-new {
+		position: absolute;
+		right: 50%;
+		top: 50%;
+		height: 70px;
+		width: 200px;
+		margin-right: -100px;
+		margin-top: -35px;
+		background-color: rgb(34, 211, 138);
+		border-radius: 16px;
+		line-height: 70px;
+		cursor: pointer;
+		text-align: center;
+		font-family: '微软雅黑';
+		font-size: bolder;
+		font-size: 25px;
+		color: white;
+		&:hover {
+			background-color: #11BF77;
+		}
+	}
+}
+#content {
+	width: 1000px;
+	height: auto;
+	margin: 0 auto;
+	& .prefix {
+		height:@headerHight;
+		width: 100%;
+	}
+	& .applylist {
+		height:auto;
+		width: 100%;
+		overflow: auto;
+		//background-color: rgba(255, 0, 0, 0.3);
+	
+	}
+}
+#maskArea {
+	position: fixed;
+	top:0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	background-color: white;
+	.opacity_cross(0.3);
+	
+}
+@formWidth:400px;
+@inputHeight:30px;
+@offsetPercent:25%;
+@inputShinning:rgba(103, 166, 217, 1);
+#applyInfo {
+		display: block;
+		width: @formWidth;
+		height: 7*@inputHeight;
+		position: fixed;
+		z-index: 3;
+		top: @headerHight+20px;
+		left: 50%;
+		margin-left: -@formWidth/2;
+		background-color: rgb(35, 35, 215);
+		border-radius: 10px;
+		& input#companyName {
+			position: absolute;
+			width: @formWidth - 40px;
+			height:@inputHeight;
+			top: @inputHeight;
+			left: 50%;
+			margin-left: -(@formWidth - 40px)/2;
+			border:0;
+			border-radius: 10px;
+			font-family: '微软雅黑';
+			text-align: center;
+			color:rgb(214, 154, 20);
+			&:focus {
+				 outline:none;
+				
+    			 //border:#87C6F9 1px solid;
+    			 box-shadow: 0 2px 2px @inputShinning,0 -2px 2px @inputShinning,2px 0 2px @inputShinning,-2px 0 2px @inputShinning;
+			}
+		}
+		& input#applyDate {
+			position: absolute;
+			width: @formWidth - 40px;
+			height:@inputHeight;
+			top: 3*@inputHeight;
+			left: 50%;
+			margin-left: -(@formWidth - 40px)/2;
+			border:0;
+			border-radius: 10px;
+			font-family: '微软雅黑';
+			text-align: center;
+			color:rgb(214, 154, 20);
+			&:focus {
+				 outline:none;
+
+    			 //border:#87C6F9 1px solid;
+    			 box-shadow: 0 2px 2px @inputShinning,0 -2px 2px @inputShinning,2px 0 2px @inputShinning,-2px 0 2px @inputShinning;
+			}
+		}
+		& button.cancelMe {
+			display: block;
+			position: absolute;
+			top: 5*@inputHeight;
+			width: (@formWidth - 40px)/2;
+			height: @inputHeight;
+			right:@offsetPercent;
+			margin-right: -(@formWidth - 40px)/4;
+			background-color: rgba(255, 0, 0, 0.2);
+			border:0;
+			color: white;
+			border-radius: 10px;
+			font-family: '微软雅黑';
+			font-size: 20px;
+			&:hover {
+				background-color: rgba(255, 0, 0, 0.4);
+				cursor: pointer;
+			}
+		}
+		& button.confirm {
+			display: block;
+			position: absolute;
+			top: 5*@inputHeight;
+			width: (@formWidth - 40px)/2;
+			height: @inputHeight;
+			left:@offsetPercent;
+			margin-left: -(@formWidth - 40px)/4;
+			background-color: rgba(0, 255, 0, 0.5);
+			border:0;
+			color: white;
+			border-radius: 10px;
+			font-family: '微软雅黑';
+			font-size: 20px;
+			&:hover {
+				background-color: rgba(0, 255, 0, 0.7);
+				cursor: pointer;
+			}
+		}
+}
+
+#myList {
+	& li {	
+		overflow: hidden;
+		position: relative;
+		list-style-type: none;
+		color: white;
+		margin-top: 10px;
+		
+		font-size: 20px;
+
+		line-height: 40px;
+		font-family: '微软雅黑';
+		background-color:rgb(243, 135, 75);
+		border-radius: 6px;
+		& div.cpName {
+			float: left;
+			width: auto;
+			background-color:rgba(14, 89, 182, 0.5);
+			padding-left: 40px;
+			padding-right: 30px;
+			
+		}
+		& div.apDate {
+			float: right;
+			width: 200px;
+			background-color: rgba(255, 0, 0, 0.5);
+			padding-left: 10px;
+			padding-right: 30px;
+		}
+	}
+	.del-btn {
+		position: absolute;
+		text-align: center;
+		right: 0;
+		z-index: 3;
+		height: 100%;
+		background-color: black;
+		width: 0;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}

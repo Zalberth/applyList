@@ -1,0 +1,181 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+#header {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  z-index: 1;
+  box-shadow: 3px 3px 5px black;
+  background-color: blue;
+}
+#header .add-new {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  height: 70px;
+  width: 200px;
+  margin-right: -100px;
+  margin-top: -35px;
+  background-color: #22d38a;
+  border-radius: 16px;
+  line-height: 70px;
+  cursor: pointer;
+  text-align: center;
+  font-family: '微软雅黑';
+  font-size: bolder;
+  font-size: 25px;
+  color: white;
+}
+#header .add-new:hover {
+  background-color: #11BF77;
+}
+#content {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+}
+#content .prefix {
+  height: 80px;
+  width: 100%;
+}
+#content .applylist {
+  height: auto;
+  width: 100%;
+  overflow: auto;
+}
+#maskArea {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: white;
+  filter: alpha(opacity = (30));
+  -moz-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  opacity: 0.3;
+}
+#applyInfo {
+  display: block;
+  width: 400px;
+  height: 210px;
+  position: fixed;
+  z-index: 3;
+  top: 100px;
+  left: 50%;
+  margin-left: -200px;
+  background-color: #2323d7;
+  border-radius: 10px;
+}
+#applyInfo input#companyName {
+  position: absolute;
+  width: 360px;
+  height: 30px;
+  top: 30px;
+  left: 50%;
+  margin-left: -180px;
+  border: 0;
+  border-radius: 10px;
+  font-family: '微软雅黑';
+  text-align: center;
+  color: #d69a14;
+}
+#applyInfo input#companyName:focus {
+  outline: none;
+  box-shadow: 0 2px 2px #67a6d9, 0 -2px 2px #67a6d9, 2px 0 2px #67a6d9, -2px 0 2px #67a6d9;
+}
+#applyInfo input#applyDate {
+  position: absolute;
+  width: 360px;
+  height: 30px;
+  top: 90px;
+  left: 50%;
+  margin-left: -180px;
+  border: 0;
+  border-radius: 10px;
+  font-family: '微软雅黑';
+  text-align: center;
+  color: #d69a14;
+}
+#applyInfo input#applyDate:focus {
+  outline: none;
+  box-shadow: 0 2px 2px #67a6d9, 0 -2px 2px #67a6d9, 2px 0 2px #67a6d9, -2px 0 2px #67a6d9;
+}
+#applyInfo button.cancelMe {
+  display: block;
+  position: absolute;
+  top: 150px;
+  width: 180px;
+  height: 30px;
+  right: 25%;
+  margin-right: -90px;
+  background-color: rgba(255, 0, 0, 0.2);
+  border: 0;
+  color: white;
+  border-radius: 10px;
+  font-family: '微软雅黑';
+  font-size: 20px;
+}
+#applyInfo button.cancelMe:hover {
+  background-color: rgba(255, 0, 0, 0.4);
+  cursor: pointer;
+}
+#applyInfo button.confirm {
+  display: block;
+  position: absolute;
+  top: 150px;
+  width: 180px;
+  height: 30px;
+  left: 25%;
+  margin-left: -90px;
+  background-color: rgba(0, 255, 0, 0.5);
+  border: 0;
+  color: white;
+  border-radius: 10px;
+  font-family: '微软雅黑';
+  font-size: 20px;
+}
+#applyInfo button.confirm:hover {
+  background-color: rgba(0, 255, 0, 0.7);
+  cursor: pointer;
+}
+#myList li {
+  overflow: hidden;
+  position: relative;
+  list-style-type: none;
+  color: white;
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 40px;
+  font-family: '微软雅黑';
+  background-color: #f3874b;
+  border-radius: 6px;
+}
+#myList li div.cpName {
+  float: left;
+  width: auto;
+  background-color: rgba(14, 89, 182, 0.5);
+  padding-left: 40px;
+  padding-right: 30px;
+}
+#myList li div.apDate {
+  float: right;
+  width: 200px;
+  background-color: rgba(255, 0, 0, 0.5);
+  padding-left: 10px;
+  padding-right: 30px;
+}
+#myList .del-btn {
+  position: absolute;
+  text-align: center;
+  right: 0;
+  z-index: 3;
+  height: 100%;
+  background-color: black;
+  width: 0;
+}
+#myList .del-btn:hover {
+  cursor: pointer;
+}
