@@ -182,3 +182,14 @@ body {
 #myList .del-btn:hover {
   cursor: pointer;
 }
+#toGithub {
+  position: fixed;
+  top: 40px;
+  left: 30px;
+  margin-top: -25px;
+  z-index: 5;
+}
+#toGithub img {
+  width: 53px;
+  height: 50px;
+}
