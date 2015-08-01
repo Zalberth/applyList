@@ -1,6 +1,7 @@
 * {
 	padding: 0;
 	margin: 0;
+	font-family: '微软雅黑';
 }
 body {
 	background-color:rgb(215, 234, 238);
@@ -83,6 +84,25 @@ body {
 		margin-left: -@formWidth/2;
 		background-color: rgb(35, 35, 215);
 		border-radius: 10px;
+		& textarea {
+			position: absolute;
+			top:4*@inputHeight + 25px;
+			left: 50%;
+			width: @formWidth - 40px - 20px;
+			height: 0;
+			margin-left: -(@formWidth - 40px)/2;
+			border-radius: 10px;
+			font-family:'微软雅黑';
+			color:rgb(214, 154, 20); 
+			border:none;
+			line-height: 20px;
+			padding-left: 10px;
+			padding-right: 10px;
+			&:focus {
+				outline:none;
+				box-shadow: 0 2px 2px @inputShinning,0 -2px 2px @inputShinning,2px 0 2px @inputShinning,-2px 0 2px @inputShinning;
+			}
+		}
 		& input#companyName {
 			position: absolute;
 			width: @formWidth - 40px;
@@ -124,7 +144,7 @@ body {
 		& button.cancelMe {
 			display: block;
 			position: absolute;
-			top: 5*@inputHeight;
+			bottom: 10px;
 			width: (@formWidth - 40px)/2;
 			height: @inputHeight;
 			right:@offsetPercent;
@@ -143,7 +163,7 @@ body {
 		& button.confirm {
 			display: block;
 			position: absolute;
-			top: 5*@inputHeight;
+			bottom: 10px;
 			width: (@formWidth - 40px)/2;
 			height: @inputHeight;
 			left:@offsetPercent;
@@ -159,6 +179,18 @@ body {
 				cursor: pointer;
 			}
 		}
+		& span.addNotes {
+			position: absolute;
+			top: 4*@inputHeight + 5px;
+			font-size: 10px;
+			left: 30px;
+			color: white;
+			font-family: '微软雅黑'; 
+			&:hover {
+				color: rgb(243, 135, 75);
+				cursor: pointer;
+			}
+		}
 }
 
 #myList {
@@ -168,13 +200,16 @@ body {
 		list-style-type: none;
 		color: white;
 		margin-top: 10px;
-		
+		height: 40px;
 		font-size: 20px;
 
 		line-height: 40px;
 		font-family: '微软雅黑';
 		background-color:rgb(243, 135, 75);
 		border-radius: 6px;
+		& .notesContent {
+			display: none;
+		}
 		& div.cpName {
 			float: left;
 			width: auto;
@@ -189,6 +224,19 @@ body {
 			background-color: rgba(255, 0, 0, 0.5);
 			padding-left: 10px;
 			padding-right: 30px;
+		}
+		& div.detail {
+			float: right;
+			width: 40px;
+			height: 40px;
+			background-image: url('../images/notes.png');
+			background-size: 100% 100%;
+			margin-right: 10px;
+			.opacity_cross(0.7);
+			&:hover {
+			.opacity_cross(1.0);
+			cursor: pointer;
+			}
 		}
 	}
 	.del-btn {
@@ -213,5 +261,32 @@ body {
 	& img {
 		width: 53px;
 		height: 50px;
+		
 	}
+}
+.notesWindow {
+	position: fixed;
+	top: 100px;
+	width: 400px;
+	height: 0px;
+	left: 50%;
+	margin-left: -200px;
+	box-sizing:border-box;
+	background-color: rgba(255, 255, 255, 0.4);
+	border:4px solid rgba(104, 66, 104, 1);
+	border-radius: 10px;
+	color: rgb(104, 66, 104);
+	padding: 10px;
+	overflow: auto;
+	z-index: 3;
+}
+.notesMasker {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: grey;
+	.opacity_cross(0.3);
+	z-index: 2;
 }

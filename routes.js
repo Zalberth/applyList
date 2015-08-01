@@ -54,6 +54,9 @@
             readInData = fs.readFileSync(inputFileName,'utf-8');
             jsonObj = JSON.parse(readInData);
             req.body.uniqueid = uuid.v1();
+            if( req.body.notes === '') { // if notes is empty,set to default value 'nodata'
+            	req.body.notes = 'nodata';
+            }
  			jsonObj.applied.push(req.body);
  			fs.writeFile(outputFileName, JSON.stringify(jsonObj), function(err) {
  			    if(err) {
@@ -69,10 +72,16 @@
            	applied:[{
            		companyName:req.body.companyName,
            		applyDate:req.body.applyDate,
-           		uniqueid:uuid.v1()
+           		uniqueid:uuid.v1(),
+           		notes:req.body.notes
            	}
            	]
            };
+           if( req.body.notes === '') { // if notes is empty,set to default value 'nodata'
+           	console.log('-------00000-----------');
+           	readInData.applied[0].notes = 'nodata';
+           }
+
            jsonObj = readInData;
            fs.writeFile(outputFileName, JSON.stringify(jsonObj), function(err) {
                if(err) {
