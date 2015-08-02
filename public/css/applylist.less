@@ -17,6 +17,7 @@ body {
 #header {
 	width: 100%;
 	height: @headerHight;
+	min-width: 1000px;
 	position: fixed;
 	z-index: 1;
 	box-shadow: 3px 3px 5px grey;
@@ -159,6 +160,9 @@ body {
 				background-color: rgba(255, 0, 0, 0.4);
 				cursor: pointer;
 			}
+			&:focus {
+				outline: none;
+			}
 		}
 		& button.confirm {
 			display: block;
@@ -177,6 +181,9 @@ body {
 			&:hover {
 				background-color: rgba(0, 255, 0, 0.7);
 				cursor: pointer;
+			}
+			&:focus {
+				outline: none;
 			}
 		}
 		& span.addNotes {

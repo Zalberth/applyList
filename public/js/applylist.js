@@ -29,8 +29,8 @@ $(function() {
 		$('body').append(masker);
 		var inputZone = '<form id="applyInfo">'
 						+'<span class="addNotes">添加备注</span>'
-						+'<input id="companyName" type="text" name="companyName" placeholder="公司名"/>'
-						+'<input id="applyDate" type="text" name="applyDate" placeholder="申请日期"/>'
+						+'<input id="companyName" type="text" name="companyName"  placeholder="公司名"/>'
+						+'<input id="applyDate" type="text" name="applyDate" placeholder="申请日期,格式：XXXX-MM-DD"/>'
 						+'<textarea id="notes" name="notes"></textarea>'
 						+'<button type="button" class="confirm">提交</button>'
 						+'<button type="button" class="cancelMe">取消</button>'
